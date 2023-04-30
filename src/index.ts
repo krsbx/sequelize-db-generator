@@ -14,13 +14,7 @@ function main(config: SequelizeConfig) {
       return connections.mariadb(config);
 
     case DB_DIALECT.SQLITE:
-      break;
-
-    case DB_DIALECT.MSSQL:
-      break;
-
-    case DB_DIALECT.ORACLE:
-      break;
+      return connections.sqlite(config);
 
     default:
       console.log('Automatically create database is not supported');
@@ -29,4 +23,4 @@ function main(config: SequelizeConfig) {
   }
 }
 
-export default main;
+export = main;

@@ -1,5 +1,6 @@
 import mariadb from './mariadb';
 import mysql from './mysql';
 import postgres from './postgres';
+import sqlite from './sqlite';
 
-export default { mariadb, mysql, postgres };
+export = { mariadb, mysql, postgres, sqlite };

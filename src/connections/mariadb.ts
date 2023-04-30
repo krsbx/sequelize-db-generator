@@ -21,4 +21,4 @@ async function mariadb(config: SequelizeConfig) {
   connection.end();
 }
 
-export default mariadb;
+export = mariadb;

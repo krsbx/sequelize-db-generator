@@ -45,4 +45,4 @@ async function mysql(config: SequelizeConfig) {
   });
 }
 
-export default mysql;
+export = mysql;

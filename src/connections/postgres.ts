@@ -59,4 +59,4 @@ async function postgres(config: SequelizeConfig) {
   });
 }
 
-export default postgres;
+export = postgres;
