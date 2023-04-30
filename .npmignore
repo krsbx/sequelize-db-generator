@@ -1,0 +1,16 @@
+src
+node_modules
+tsconfig.json
+README.md
+yarn.lock
+yarn-error.log
+.pnpm-debug.log
+.eslintrc
+.prettierignore
+.prettierrc
+.husky
+.vscode
+.github
+commitlint.config.ts
+tsconfig.json
+sequelize-table-generator*
