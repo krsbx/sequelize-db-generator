@@ -1,7 +1,9 @@
-import connector from 'mysql2';
+import type { Connection } from 'mysql2';
 import type { Options as SequelizeConfig } from 'sequelize';
 
-function createConnection(config: SequelizeConfig) {
+async function createDbConnection(config: SequelizeConfig) {
+  const connector = (await import('mysql2')).default;
+
   const connection = connector.createConnection({
     host: config.host,
     user: config.username,
@@ -9,7 +11,7 @@ function createConnection(config: SequelizeConfig) {
     port: config.port,
   });
 
-  return new Promise<connector.Connection>((resolve, reject) => {
+  return new Promise<Connection>((resolve, reject) => {
     connection.connect((err) => {
       if (!err) return resolve(connection);
 
@@ -26,7 +28,7 @@ async function mysql(config: SequelizeConfig) {
     return;
   }
 
-  const connection = await createConnection(config);
+  const connection = await createDbConnection(config);
 
   return new Promise<void>((resolve, reject) => {
     connection.query(

@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import connector from 'sqlite3';
 import type { Options as SequelizeConfig } from 'sequelize';
 
-function sqlite(config: SequelizeConfig) {
+async function sqlite(config: SequelizeConfig) {
   const { storage } = config;
 
   if (!storage) {
@@ -17,6 +16,8 @@ function sqlite(config: SequelizeConfig) {
   const filePath = path.resolve(storage);
 
   if (fs.existsSync(filePath)) return;
+
+  const connector = (await import('sqlite3')).default;
 
   const connection = new connector.Database(filePath);
 

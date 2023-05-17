@@ -1,11 +1,11 @@
-import connector from 'pg';
+import type { Client } from 'pg';
 import type { Options as SequelizeConfig } from 'sequelize';
 
 function isDatabaseExist({
   connection,
   database,
 }: {
-  connection: connector.Client;
+  connection: Client;
   database: string;
 }) {
   return new Promise<boolean>((resolve) => {
@@ -28,6 +28,8 @@ async function postgres(config: SequelizeConfig) {
     console.log('Database name is not defined, returning...');
     return;
   }
+
+  const connector = (await import('pg')).default;
 
   const connection = new connector.Client({
     host: config.host,

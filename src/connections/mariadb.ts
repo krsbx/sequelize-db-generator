@@ -1,4 +1,3 @@
-import connector from 'mariadb';
 import type { Options as SequelizeConfig } from 'sequelize';
 
 async function mariadb(config: SequelizeConfig) {
@@ -8,6 +7,8 @@ async function mariadb(config: SequelizeConfig) {
     console.log('Database name is not defined, returning...');
     return;
   }
+
+  const connector = (await import('mariadb')).default;
 
   const connection = await connector.createConnection({
     host: config.host,
