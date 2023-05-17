@@ -5,7 +5,7 @@
   "repository": "git@github.com:krsbx/sequelize-table-generator.git",
   "author": "krsbx <firdaus.sati51@gmail.cm>",
   "license": "MIT",
-    "scripts": {
+  "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
     "dev": "nodemon src/index.ts",
@@ -15,6 +15,7 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@types/node": "^18.16.3",
+    "@types/pg": "^8.6.6",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "eslint": "^8.39.0",
@@ -26,10 +27,14 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "mariadb": "^3.1.1",
+    "mysql2": "^3.2.4",
     "nodemon": "^2.0.22",
+    "pg": "^8.10.0",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.0",
     "sequelize": "^6.31.0",
+    "sqlite3": "^5.1.6",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
